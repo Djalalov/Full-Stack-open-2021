@@ -1,0 +1,24 @@
+
+note over browser: User clicks a submit button after writing a note
+end note 
+browser->Nginx Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/notes
+Nginx Server-->browser: HTML-code
+browser->Nginx Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Nginx Server-->browser: main.css
+browser->Nginx Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Nginx Server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->Nginx Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Nginx Server-->browser: [{ Object { content: "hello World", date: "2021-07-08T14:38:01.012Z" }}, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
+
+https://www.websequencediagrams.com/cgi-bin/cdraw?lz=Cm5vdGUgb3ZlciBicm93c2VyOiBVc2VyIGNsaWNrcyBhIHN1Ym1pdCBidXR0b24gYWZ0ZXIgd3JpdGluZyBhIG5vdGUKZW5kAAQFIAoAPQctPk5naW54IFNlcnZlcjogSFRUUCBQT1NUIGh0dHBzOi8vc3R1ZGllcy5jcy5oZWxzaW5raS5maS9leGFtcGxlYXBwL25vdGVzCgA8DC0tPgCBGwlIVE1MLWNvZGUAVh1HRQBGLG1haW4uY3MAWxoAGAkAJU9qAFQfanMKAIMVEwCCZQggc3RhcnRzIGV4ZWN1AIMSBWpzAIIVBnRoYXQgcmVxdWVzdHMgSlNPTiBkYXRhIGZyb20gcwCDFwUgAIM0CQoAgX9LZGF0YS5qc29uAIMnGVt7IE9iamVjdCB7IGNvbnRlbnQ6ICJoZWxsbyBXb3JsZCIsIGRhdGU6ICIyMDIxLTA3LTA4VDE0OjM4OjAxLjAxMloiIH19LCAuLi5dAIIBHQCCEQZlcyB0aGUgZXZlbnQgaGFuZGxlcgCCGAhuZGVycwCFRQVzIHRvIGRpc3BsYXkAhU0J&s=default

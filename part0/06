@@ -1,0 +1,32 @@
+
+browser->Nginx Server: HTTP GET https://studies.cs.helsinki.fi//exampleapp/spa
+Nginx Server-->browser: HTML-code
+browser->Nginx Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Nginx Server-->browser: main.css
+browser->Nginx Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+Nginx Server-->browser: spa.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->Nginx Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Nginx Server-->browser: data.json
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
+browser->Nginx Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp//favicon.ico
+Nginx Server->browser: /favicon.ico
+
+note over browser:
+User creates a new note 
+end note
+
+browser->Nginx Server: HTTP POST https://studies.cs.helsinki.fi//exampleapp/new_note_spa
+Nginx Server-->browser: new_note_spa
+
+
+https://www.websequencediagrams.com/cgi-bin/cdraw?lz=CmJyb3dzZXItPk5naW54IFNlcnZlcjogSFRUUCBHRVQgaHR0cHM6Ly9zdHVkaWVzLmNzLmhlbHNpbmtpLmZpLy9leGFtcGxlYXBwL3NwYQoAOgwtLT4AVwc6IEhUTUwtY29kZQAxQABlC21haW4uY3NzAFwZABgJACpKc3BhLmoAWBoAGAcKbm90ZSBvdmVyIACBeggAgmEIIHN0YXJ0cyBleGVjdXRpbmcganMAghMGdGhhdCByZXF1ZXN0cyBKU09OIGRhdGEgZnJvbSBzAIMTBSAKZW5kIG5vdGUKAIF9S2RhdGEuanNvbgCDJRkAGAoAgT4cAIFNBmVzIHRoZSBldmVudCBoYW5kbGVyAIFUCG5kZXJzAIE7BXMgdG8gZGlzcGxheQCBSwoAg1JKL2Zhdmljb24uaWNvAIUHDgCFCgoAFw0Agx8UVXNlciBjcmVhdGVzIGEgbmV3AIJ3BQCCXihQT1MAhhMtbmV3X25vdGVfAIYtHAAYDQ&s=default
